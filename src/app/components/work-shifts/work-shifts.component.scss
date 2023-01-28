@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+
+    th, td {
+        padding: .5rem;
+    }
+
+    .edit, .delete {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    .edit {
+        background-image: url('./../../../assets/img/edit.svg');
+    }
+    .delete {
+        background-image: url('./../../../assets/img/delete.svg');
+    }
+}
+

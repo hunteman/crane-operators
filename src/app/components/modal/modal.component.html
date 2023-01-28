@@ -1,0 +1,115 @@
+<div id="modal" class="modal" [ngClass]="{_open: open}">
+  <form [formGroup]="form" class="modal-wrapper" #modalForm>
+    <div class="modal-header">
+      <h2 class="modal-contact-name">{{modalId}}</h2>
+      <span class="modal-close" (click)="modalClose()">&times;</span>
+    </div>
+    <div class="modal-data">
+      <div class="modal-data__group">
+        <div class="long-group">
+          <label for="type">Тип крана:</label>
+          <select id="type" placeholder="Выбрать" class="select" formControlName="cranType">
+            <option value="" disabled selected>Выберите тип крана...</option>
+            <option value="single">Простой</option>
+            <option value="double">Двойной</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-data__group">
+        <div class="long-group">
+          <label for="name">ФИО ответственного:</label>
+          <input type="text" id="name" class="input" formControlName="name">
+        </div>
+      </div>
+
+      <div class="modal-data__group">
+        <span class="short-group">
+          <label for="start-date">Дата начала:</label>
+          <select id="start-date" class="select" formControlName="dateFrom">
+            <!-- <option value="" disabled selected>Выберите дату...</option> -->
+            <option *ngFor="let date of fromDates" value="date">{{date}}</option>
+          </select>
+        </span>
+        <span class="short-group">
+          <label for="end-date">Дата окончания:</label>
+          <select id="end-date" class="select" formControlName="dateTo">
+            <!-- <option value="" disabled selected>Выберите дату...</option> -->
+            <option *ngFor="let date of toDates"  value="date">{{date}}</option>
+          </select>
+        </span>
+      </div>
+
+      <div class="crans" formGroupName="firstCran" *ngIf="form.controls['cranType'].valid && form.controls['firstCran'] != null">
+        <p class="modal-data__group long-group"><b>Первый кран</b></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Грузовик</th>
+              <th>Погружено (т)</th>
+              <th>Выгружено (т)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody formArrayName="trucks">
+            <tr *ngFor="let truck of form.get('firstCran').get('trucks').controls; let i = index;" formGroupName="{{i}}">
+              <td>
+                  <select id="cran-1_trucks-{{i+1}}" class="select" formControlName="truckName">
+                      <option value="" disabled selected>Выбрать грузовик...</option>
+                      <option value="Грузовик1">Грузовик1</option>
+                      <option value="Грузовичок малый">Грузовичок малый</option>
+                  </select>
+              </td>
+              <td>
+                  <input type="text" id="load" class="input" disabled formControlName="load">
+              </td>
+              <td>
+                  <input type="text" id="shift" class="input" formControlName="shift">
+              </td>
+              <td>
+                  <span class="delete"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div formGroupName="secondCran" *ngIf="form.controls['cranType'].valid && form.controls['secondCran']">
+        <p class="modal-data__group long-group"><b>Второй кран</b></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Грузовик</th>
+              <th>Погружено (т)</th>
+              <th>Выгружено (т)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody formArrayName="trucks">
+            <tr *ngFor="let truck of form.get('secondCran').get('trucks').controls; let i = index;" formGroupName="{{i}}">
+              <td>
+                  <select id="cran-2_trucks-{{i+1}}" class="select" formControlName="truckName">
+                      <option value="" disabled selected>Выбрать грузовик...</option>
+                      <option value="Грузовик1">Грузовик1</option>
+                      <option value="Грузовичок малый">Грузовичок малый</option>
+                  </select>
+              </td>
+              <td>
+                  <input type="text" id="load" class="input" disabled formControlName="load">
+              </td>
+              <td>
+                  <input type="text" id="shift" class="input" formControlName="shift">
+              </td>
+              <td>
+                  <span class="delete"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><b>Всего погружено:</b> <input type="text" formControlName="totalLoad" readonly></p>
+      <p><b>Всего выгружено:</b> <input type="text" formControlName="totalShip" readonly></p>
+    </div>
+    <button type="button">Save</button>
+  </form>
+</div>

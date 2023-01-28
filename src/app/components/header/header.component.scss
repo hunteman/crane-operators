@@ -1,0 +1,36 @@
+.header {
+    color: #fff;
+  
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #4651f7;
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
+  
+    h2 {
+      padding: .8rem 0;
+    }
+
+    .button {
+        color: #4651f7;
+        font-size: 1.6rem;
+        line-height: 1rem;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .25s;
+
+        &:hover {
+            background-color: #ece2e2;
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+        }
+    }
+}

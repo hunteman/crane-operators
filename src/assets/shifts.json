@@ -1,0 +1,55 @@
+[
+    {
+        "id": 1,
+        "name": "Иванов И.И.",
+        "dateFrom": "2022.02.18 08:00",
+        "dateTo": "2022.02.18 19:00",
+        "cranType": "double",
+        "firstCran": {
+            "cranName": "Первый кран",
+            "trucks": [
+                {
+                    "truckName": "Грузовик1",
+                    "load": 10,
+                    "shift": 0
+                },
+                {
+                    "truckName": "Грузовик2",
+                    "load": 10,
+                    "shift": 0
+                }
+            ]
+        },
+        "secondCran": {
+            "cranName": "Второй кран",
+            "trucks": [
+                {
+                    "truckName": "Грузовик1",
+                    "load": 5,
+                    "shift": 10
+                }
+            ]
+        },
+        "totalLoad": 25,
+        "totalShip": 10 
+    },
+    {
+        "id": 2,
+        "name": "Петров В.В.",
+        "dateFrom": "22.02.17 08:00",
+        "dateTo": "22.02.17 19:00",
+        "cranType": "single",
+        "firstCran": {
+            "cranName": "Первый кран",
+            "trucks": [
+                {
+                    "truckName": "Грузовик1",
+                    "load": 0,
+                    "shift": 10
+                }
+            ]
+        },
+        "totalLoad": 0,
+        "totalShip": 10 
+    }
+]

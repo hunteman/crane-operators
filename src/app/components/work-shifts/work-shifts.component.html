@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="container">
+    <table class="shifts-table">
+        <thead>
+            <tr>
+                <td>ФИО</td>
+                <td>Начало</td>
+                <td>Окончание</td>
+                <td>Тип крана</td>
+                <td>Погружено тонн</td>
+                <td>Изменить/Удалить</td>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr *ngFor="let shift of shifts; index as i;" [id]="shift.id">
+                <td class="table-cell">{{shift.name}}</td>
+                <td class="table-cell">{{shift.dateFrom}} 08-00</td>
+                <td class="table-cell">{{shift.dateTo}} 19-00</td>
+                <td class="table-cell">{{shift.name}}</td>
+                <td class="table-cell">{{shift.totalLoad}}</td>
+                <td class="table-cell">
+                    <span id="editor_{{i}}" class="edit" (click)="shiftEdit(shift.id)"></span>
+                    <span id="remover_{{i}}" class="delete" (click)="shiftDelete(shift.id)"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<app-modal [shifts]="shifts"></app-modal>
